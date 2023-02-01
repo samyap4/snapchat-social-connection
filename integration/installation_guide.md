@@ -35,11 +35,7 @@ You’ll need to pick the libraries you plan to use: Login Kit is required at th
 
 Now it is time to generate a Confidential OAuth 2.0 Client ID.  Click Add and copy down your Client Id and Secret.  You will need these later.
 
-### Step 5: Configure Login Kit
-
-You’re all set! Head to  [the docs](https://snapkit.com/docs)  for more info, and start building your app.
-
-### Step 6: Submit your finished app for approval
+### Step 5: Submit your finished app for approval
 
 Once you’re all done with testing and building, you’ll probably want to release something to everyone, not just the people you’ve added under the Demo Users list. You can do this with your Production ID, but to unlock this capability you’ll need to submit your app for approval.
 
