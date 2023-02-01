@@ -1,33 +1,25 @@
 /* globals request */
-module.exports = function fetchUserProfile(accessToken, context, callback) {
-  request.get(
-    {
-      url: "USERINFO_URL",
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    },
-    (error, response, body) => {
-      if (error) {
-        return callback(error);
+module.exports = function fetchUserProfile(accessToken, context, cb) {
+  const axios = require('axios@0.22.0');
+  const userInfoEndpoint = 'https://kit.snapchat.com/v1/me';
+  const headers = { 'Authorization': 'Bearer ' + accessToken };
+  const query = "{me{displayName bitmoji{avatar} externalId}}";
+  console.log('hello');
+  axios
+    .post(userInfoEndpoint,{ query }, { headers })
+    .then(res => {
+      if (res.status !== 200) {
+        return cb(new Error(res.data));
       }
-
-      if (response.statusCode >= 300) {
-        return callback(new Error(`Failed status code check for user profile response. Received ${response.statusCode}.`));
-      }
-
-      let bodyParsed;
-      try {
-        bodyParsed = JSON.parse(body);
-      } catch (jsonError) {
-        return callback(new Error(`Failed JSON parsing for user profile response.`));
-      }
-
+		  const user_data = res.data.data.me;
+    
       const profile = {
-        user_id: bodyParsed.sub,
+        user_id: user_data.externalId,
+        nickname: user_data.displayName,
+        picture: user_data.bitmoji.avatar
       };
-
-      return callback(null, profile);
-    }
-  );
+      
+      cb(null, profile);
+    })
+    .catch(err => cb(err));
 };
