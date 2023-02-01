@@ -4,7 +4,7 @@ module.exports = function fetchUserProfile(accessToken, context, cb) {
   const userInfoEndpoint = 'https://kit.snapchat.com/v1/me';
   const headers = { 'Authorization': 'Bearer ' + accessToken };
   const query = "{me{displayName bitmoji{avatar} externalId}}";
-  console.log('hello');
+
   axios
     .post(userInfoEndpoint, { query }, { headers })
     .then(res => {
