@@ -1,10 +1,22 @@
 {
-  "authorizationURL": "https://example.com/oauth/authorize",
-  "tokenURL": "https://example.com/oauth/token",
+  "authorizationURL": "https://accounts.snapchat.com/accounts/oauth2/auth",
+  "tokenURL": "https://accounts.snapchat.com/accounts/oauth2/token",
   "permissions": [
     {
-      "scope": "example",
-      "label": "Example Permission",
+      "scope": "https://auth.snapchat.com/oauth2/api/user.external_id",
+      "label": "External Id",
+      "required": true,
+      "default": true
+    },
+    {
+      "scope": "https://auth.snapchat.com/oauth2/api/user.display_name",
+      "label": "Display Name",
+      "required": false,
+      "default": true
+    },
+    {
+      "scope": "https://auth.snapchat.com/oauth2/api/user.bitmoji.avatar",
+      "label": "Bitmoji Avatar",
       "required": false,
       "default": true
     }
