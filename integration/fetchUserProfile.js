@@ -17,7 +17,7 @@ module.exports = function fetchUserProfile(accessToken, context, cb) {
       const profile = {
         user_id: userData.externalId,
         nickname: userData.displayName,
-        picture: userData.bitmoji.avatar,
+        picture: userData.bitmoji ? userData.bitmoji.avatar : null
       };
 
       cb(null, profile);
