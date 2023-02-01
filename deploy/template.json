@@ -1,8 +1,8 @@
 {
   "options": {
-    "icon_url": "https://identicons.dev/static/icons/mono/png/icon-integrations-marketplace.png"
+    "icon_url": "https://cdn.cdnlogo.com/logos/s/20/snapchat.svg"
   },
   "strategy": "oauth2",
   "name": "social-connection-integration-test",
-  "display_name": "Integration Test"
+  "display_name": "Snapchat"
 }
