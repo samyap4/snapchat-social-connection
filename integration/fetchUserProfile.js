@@ -6,12 +6,13 @@ module.exports = function fetchUserProfile(accessToken, context, cb) {
   const query = "{me{displayName bitmoji{avatar} externalId}}";
   console.log('hello');
   axios
-    .post(userInfoEndpoint,{ query }, { headers })
+    .post(userInfoEndpoint, { query }, { headers })
     .then(res => {
       if (res.status !== 200) {
         return cb(new Error(res.data));
       }
-		  const user_data = res.data.data.me;
+	  
+      const user_data = res.data.data.me;
     
       const profile = {
         user_id: user_data.externalId,
